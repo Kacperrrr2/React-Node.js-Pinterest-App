@@ -1,5 +1,6 @@
+import { Outlet } from 'react-router'
 import './app.css'
-import Gallery from './components/gallery/gallery'
+
 import LeftBar from './components/leftBar/leftBar'
 import TopBar from './components/topBar/topBar'
 
@@ -9,7 +10,7 @@ const App = () => {
       <LeftBar/>
       <div className="content">
         <TopBar/>
-        <Gallery/>
+        <Outlet/>
       </div>
     </div>
   )

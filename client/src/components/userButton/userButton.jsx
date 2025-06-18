@@ -5,10 +5,10 @@ const currentUser=true
   const [open, setOpen]=useState(false);
   return currentUser ? (
     <div className="userButton">
-    <img src='/general/noAvatar.png' alt=''/>
-    <img 
+    <ImageCustom path='/general/noAvatar.png' alt=''/>
+    <ImageCustom 
     onClick={()=> setOpen((prev)=>!prev)}
-    src='/general/arrow.svg'
+    path='/general/arrow.svg'
     alt='' 
     className='arrow'/>
     {open &&
