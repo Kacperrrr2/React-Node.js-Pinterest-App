@@ -1,29 +1,30 @@
 import React from 'react'
 import "./leftBar.css";
 import ImageCustom from '../image/image';
+import { Link } from 'react-router';
 function LeftBar() {
   return (
     <div className='leftBar'>
       <div className="menuIcons">
-        <a href='/' className='menuIcon'>
+        <Link to='/' className='menuIcon'>
         <ImageCustom path='/general/logo.png' alt=''/>
-        </a>
-        <a href='/' className='menuIcon'>
+        </Link>
+        <Link to='/' className='menuIcon'>
         <ImageCustom path='/general/home.svg' alt=''/>
-        </a>
-        <a href='/' className='menuIcon'>
+        </Link>
+        <Link to='/create' className='menuIcon'>
         <ImageCustom path='/general/create.svg' alt=''/>
-        </a>
-        <a href='/' className='menuIcon'>
+        </Link>
+        <Link to='/' className='menuIcon'>
         <ImageCustom path='/general/updates.svg' alt=''/>
-        </a>
-        <a href='/' className='menuIcon'>
+        </Link>
+        <Link to='/' className='menuIcon'>
         <ImageCustom path='/general/messages.svg' alt=''/>
-        </a>
+        </Link>
       </div>
-      <a href='/'className='menuIcon'>
+      <Link to='/'className='menuIcon'>
         <ImageCustom path="/general/settings.svg" alt=''/>
-      </a>
+      </Link>
     </div>
   )
 }
