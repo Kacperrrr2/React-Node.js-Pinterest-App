@@ -1,8 +1,55 @@
-import React from 'react'
+import React, { useState } from 'react'
+import ImageCustom from '../../components/image/image'
 
 function AuthPage() {
+  const[isRegister,setIsRegister]= useState(false);
+  const[error,setError]= useState("");
   return (
-    <div className='authPage'>authPage</div>
+    <div className='authPage'>
+      <div className="authContainer">
+        <ImageCustom path="/general.logo.png" w={36} h={36} alt=''/>
+        <h1>{isRegister? "Create an Account" : "Login to your account"}</h1>
+        {isRegister ? (
+          <form key='registerForm'>
+          <div className="formGroup">
+            <label htmlFor='username'>Username</label>
+            <input type='username' placeholder='Username' required name='username' id='username'/>
+          </div>
+          <div className="formGroup">
+            <label htmlFor='displayName'>Name</label>
+            <input type='displayName' placeholder='displayName' required name='displayName' id='displayName'/>
+          </div>
+
+          <div className="formGroup">
+            <label htmlFor='email'>Email</label>
+            <input type='email' placeholder='Email' required name='email' id='name'/>
+          </div>
+
+          <div className="formGroup">
+            <label htmlFor='password'>Password</label>
+            <input type='password' placeholder='password' required name='password' id='password'/>
+          </div>
+
+          <button type='submit'>Login</button>
+          <p onClick={()=>setIsRegister(false)}>Don you have an account? <b>Login</b></p>
+          {error & <p className='error'>{error}</p>}
+        </form>)
+         : 
+        (<form key='loginForm'>
+          <div className="formGroup">
+            <label htmlFor='email'>Email</label>
+            <input type='email' placeholder='Email' required name='email' id='name'/>
+          </div>
+          <div className="formGroup">
+            <label htmlFor='password'>Password</label>
+            <input type='password' placeholder='password' required name='password' id='password'/>
+          </div>
+          <button type='submit'>Login</button>
+          <p onClick={()=>setIsRegister(true)}>Don&apos;t have account? <b>Register</b></p>
+          {error & <p className='error'>{error}</p>}
+        </form>)}
+      </div>
+    </div>
   )
 }
 
