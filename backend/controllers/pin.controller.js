@@ -1,3 +1,5 @@
-export const  test= (req,res)=>{
-    return res.json("hello from controller!")
+import Pin from "../models/pin.model.js"
+
+export const getPins= async(req,res)=>{
+    
 }
