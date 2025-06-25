@@ -37,7 +37,7 @@ function Postpage() {
                       <span>{data.user.displayName}</span>
                       
                       </Link>
-                      <Comments/>
+                      <Comments id={data._id}/>
                       
                   </div>
               </div>
