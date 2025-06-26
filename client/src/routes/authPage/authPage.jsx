@@ -2,10 +2,16 @@ import React, { useState } from 'react'
 import ImageCustom from '../../components/image/image'
 import "./authPage.css"
 import apiRequest from '../../utils/apiRequest';
+import { useNavigate } from 'react-router';
+import useAuthStore from '../../utils/authStore';
 
 function AuthPage() {
   const[isRegister,setIsRegister]= useState(false);
   const[error,setError]= useState("");
+
+  const navigate= useNavigate()
+
+  const {setCurrentUser}=useAuthStore()
 
   const handleSubmit= async (e)=>{
     e.preventDefault()
@@ -16,7 +22,8 @@ function AuthPage() {
 
     try {
       const res = await apiRequest.post(`/users/auth/${isRegister ? "register" : "login"}`, data)
-      console.log(res.data)
+      navigate("/")
+      setCurrentUser(res.data)
     } catch (error) {
       setError(error.response.data.message)
       
