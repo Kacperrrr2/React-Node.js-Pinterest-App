@@ -6,12 +6,13 @@ import Boards from '../../components/boards/boards';
 import { useQuery } from '@tanstack/react-query';
 import { useParams } from 'react-router';
 import apiRequest from '../../utils/apiRequest';
+import FollowButton from './followButton';
 
 function ProfilePage() {
   const [type,setType]=useState("saved");
   const{username} = useParams()
   const {isPending, error, data}= useQuery({
-    queryKey:["pin", username],
+    queryKey:["profile", username],
     queryFn: ()=> apiRequest.get(`users/${username}`).then((res)=> res.data)
   })
 
@@ -25,12 +26,12 @@ function ProfilePage() {
        <ImageCustom w={100} h={100} className='profileImg'  src={data.img || "/general/noAvatar.png"} alt=''/>
       <h1 className='profileName'>{data.displayName}</h1>
       <span className='profileUsername'>@{data.username}</span>
-      <div className="followCounts"> 10 followers . 20 followings</div>
+      <div className="followCounts"> {data.followerCount} followers . {data.followingCount} following</div>
       <div className="profileInteractions">
         <ImageCustom path='/general/share.svg' alt=''/>
       <div className="profileButtons">
         <button>Message</button>
-        <button>Follow</button>
+        <FollowButton isFollowing={data.isFollowing} username={data.username}/>
       </div>
         <ImageCustom path='/general/more.svg' alt=''/>
       </div>
