@@ -6,9 +6,9 @@ import Options from './Options'
 function Editor({previewImg}) {
   return (
     <div className="editor">
-    <Layers previewImg={previewImg}/>
-    <Workspace previewImg={previewImg}/>
-    <Options previewImg={previewImg}/>
+      <Layers previewImg={previewImg} />
+      <Workspace previewImg={previewImg} />
+      <Options previewImg={previewImg} />
     </div>
   )
 }
