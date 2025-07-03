@@ -10,6 +10,9 @@
     gap: 8px;
     font-weight: 500;
 }
+.interactionIcons img, .interactionIcons svg{
+  cursor: pointer;
+}
 
 .postInteraction button{
     background-color: #e50829;

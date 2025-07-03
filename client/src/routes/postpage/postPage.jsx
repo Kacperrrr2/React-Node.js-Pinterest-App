@@ -1,4 +1,3 @@
-import React, { use } from 'react'
 import ImageCustom from '../../components/image/image'
 import PostInteraction from '../../components/postInteractions/postInteraction'
 import { Link, useParams } from 'react-router'
@@ -28,12 +27,12 @@ function Postpage() {
       </svg>
               <div className="postContainer">
                   <div className="postImg">
-                      <ImageCustom src={data.media} alt="" w={736}/>
+                      <ImageCustom path={data.media} alt="" w={736}/>
                   </div>
                   <div className="postDetails">
-                      <PostInteraction/>
+                      <PostInteraction postId={id}/>
                       <Link to={`/${data.user.username}`} className='postUser'>
-                      <ImageCustom src= {data.user.img ||"/general/noAvatar.png"}/>
+                      <ImageCustom path= {data.user.img ||"/general/noAvatar.png"}/>
                       <span>{data.user.displayName}</span>
                       
                       </Link>
